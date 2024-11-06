@@ -40,6 +40,7 @@ const TaskItem = ({ todo }) => {
 
   return (
     <Card
+      id={todo._id}
       display='flex'
       direction='row'
       className='task__container'

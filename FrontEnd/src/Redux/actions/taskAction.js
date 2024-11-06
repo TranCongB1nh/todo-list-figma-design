@@ -1,101 +1,3 @@
-// import { ADD_TODO, EDIT_TODO, FILTER_TODO, REMOVE_TODO, TOGGLE_TODO, SET_TASKS } from "../TaskActionTypes";
-// import axios from 'axios';
-// import { getToken } from '../../utils/auth'; // Ensure this path is correct
-
-// // Add new task
-// export const addTodo = (text) => {
-//   return async (dispatch) => {
-//     try {
-//       const token = getToken();
-//       const response = await axios.post('http://127.0.0.1:5000/tasks/add-task', { text }, {
-//         headers: {
-//           Authorization: `Bearer ${token}`, // Sửa lỗi cú pháp
-//         },
-//       });
-
-//       dispatch({
-//         type: ADD_TODO,
-//         payload: { id: response.data.id, text: response.data.text, completed: false },
-//       });
-//     } catch (error) {
-//       console.error("Failed to add todo:", error);
-//     }
-//   };
-// };
-
-// // Remove task
-// export const removeTodo = (id) => {
-//   return async (dispatch) => {
-//     try {
-//       const token = getToken();
-//       await axios.delete(`http://127.0.0.1:5000/tasks/delete-task/${id}`, {
-//         headers: {
-//           Authorization: `Bearer ${token}`,
-//         },
-//       });
-
-//       dispatch({
-//         type: REMOVE_TODO,
-//         payload: { id },
-//       });
-//     } catch (error) {
-//       console.error("Failed to remove todo:", error);
-//     }
-//   };
-// };
-
-// // Edit task
-// export const editTodo = (id, newText) => {
-//   return async (dispatch) => {
-//     try {
-//       const token = getToken();
-//       await axios.put(`http://127.0.0.1:5000/tasks/update-task/${id}`, { text: newText }, {
-//         headers: {
-//           Authorization: `Bearer ${token}`,
-//         },
-//       });
-
-//       dispatch({
-//         type: EDIT_TODO,
-//         payload: { id, newText },
-//       });
-//     } catch (error) {
-//       console.error("Failed to edit todo:", error);
-//     }
-//   };
-// };
-
-// // Toggle task completion (if needed)
-// export const toggleTodo = (id) => {
-//   return async (dispatch) => {
-//     try {
-//       const token = getToken();
-//       await axios.patch(`http://127.0.0.1:5000/tasks/todos/${id}/toggle`, {}, {
-//         headers: {
-//           Authorization: `Bearer ${token}`,
-//         },
-//       });
-
-//       dispatch({
-//         type: TOGGLE_TODO,
-//         payload: { id },
-//       });
-//     } catch (error) {
-//       console.error("Failed to toggle todo:", error);
-//     }
-//   };
-// };
-
-// // Filter todo
-// export const filterTodo = (filter) => ({
-//   type: FILTER_TODO,
-//   payload: { filter },
-// });
-
-// export const setTasks = (todos) => ({
-// 	type: SET_TASKS,
-// 	payload: { todos },
-//   });
 import { TaskActionTypes } from "../TaskActionTypes";
 import axios from "axios";
 import { getToken } from "../../utils/auth";
@@ -197,7 +99,7 @@ export const deleteTask = (taskId) => async (dispatch) => {
           Authorization: `Bearer ${token}`, // Add the token here
         }
       }
-    );
+    ); 
 
     dispatch({
       type: TaskActionTypes.DELETE_TASK_SUCCESS,

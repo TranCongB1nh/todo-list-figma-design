@@ -16,6 +16,7 @@ const TaskList = () => {
       return true;
     }
   });
+
   console.log("FilteredList: ", filteredList);
   return (
     <List
@@ -27,7 +28,7 @@ const TaskList = () => {
       flexDirection="column"
     >
       {filteredList.map((todo) => (
-        <TaskItem key={`${todo._id}-${Date.now()}`} todo={todo} />
+        <TaskItem key={todo._id} todo={todo} />
       ))}
     </List>
   );

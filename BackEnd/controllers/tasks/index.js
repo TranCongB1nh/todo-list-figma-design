@@ -29,7 +29,7 @@ async function handleAddTask(request, response) {
       await newTask.save();
 
       response.statusCode = httpStatusCodes.CREATED;
-      response.end(JSON.stringify({ message: "Task created successfully", task: taskData }));
+      response.end(JSON.stringify({ message: "Task created successfully", task: newTask }));
     });
   } catch (error) {
     console.error("Error:", error);
@@ -108,7 +108,6 @@ async function handleUpdateTask(request, response) {
 }
 
 async function handleDeleteTaskById(request, response) {
-  console.log(request)
   try {
     const chunks = [];
     request.on("data", (chunk) => {
